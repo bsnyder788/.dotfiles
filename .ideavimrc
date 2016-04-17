@@ -1,0 +1,51 @@
+set nocompatible
+" remap arrow keys
+nnoremap <Up> <Nop> 
+nnoremap <Down> <Nop> 
+nnoremap <Left> << 
+nnoremap <Right> >>
+inoremap <Up> <Nop> 
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+vnoremap <Up> <Nop> 
+vnoremap <Down> <Nop>
+vnoremap <Left> <gv 
+vnoremap <Right> >gv 
+inoremap <Esc> <Nop>
+
+inoremap jk <Esc>
+
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
+noremap <c-h> <c-w>h
+
+nnoremap ; :
+nnoremap : ;
+
+nnoremap ! :!
+
+set encoding=utf-8
+set showcmd
+let mapleader=","
+let maplocalleader="\\"
+
+" clean trailing whitespace
+nnoremap <leader>ww mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
+set cursorline
+set ignorecase
+set smartcase
+set showmatch
+
+noremap <silent> <leader><space> :noh<cr>:call clearmatches()<cr>
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+set list lcs=eol:¬
+" relative line numbers
+set relativenumber number
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber 
