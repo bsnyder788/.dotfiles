@@ -27,6 +27,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-tbone'
 Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
+Plugin 'elixir-lang/vim-elixir'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -162,3 +163,4 @@ let g:go_fmt_command = "goimports"
 
 au BufRead,BufNewFile *.go set filetype=go
 au BufNewFile,BufRead *.rs set filetype=rust
+au BufNewFile,BufRead *.exs set filetype=elixir

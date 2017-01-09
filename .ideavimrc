@@ -38,6 +38,7 @@ set cursorline
 set ignorecase
 set smartcase
 set showmatch
+set surround
 
 noremap <silent> <leader><space> :noh<cr>:call clearmatches()<cr>
 
