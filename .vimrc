@@ -21,7 +21,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'ciaranm/detectindent'
 Plugin 'matchit.zip'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-tbone'
 Plugin 'fatih/vim-go'
@@ -52,9 +51,6 @@ set showcmd
 let mapleader=","
 let maplocalleader="\\"
 set nolist
-
-" clean trailing whitespace
-nnoremap <leader>ww mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
 set background=dark
 colorscheme molokai
@@ -132,15 +128,6 @@ set softtabstop=4
 set smarttab
 set expandtab
 set autoindent
-
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'c'    : ['#(whoami)', '#(uptime | cud -d " " -f 1,2,3)'],
-      \'win'  : ['#I', '#W'],
-      \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : '#(date)',
-      \'y'    : ['%R', '%a', '%Y'],
-      \'z'    : '#H'}
 
 " Go related stuff
 au FileType go nmap <leader>r <Plug>(go-run)
