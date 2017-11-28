@@ -20,13 +20,11 @@ Plugin 'tomasr/molokai'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ciaranm/detectindent'
 Plugin 'matchit.zip'
-Plugin 'tpope/vim-fireplace'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-tbone'
 Plugin 'fatih/vim-go'
-Plugin 'rust-lang/rust.vim'
 Plugin 'elixir-lang/vim-elixir'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -120,6 +118,7 @@ nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 au BufNewFile, BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 au FileType java set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 au VimEnter * RainbowParenthesesToggle
