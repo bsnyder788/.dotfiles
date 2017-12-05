@@ -20,8 +20,8 @@ Plug 'ciaranm/detectindent'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-tbone'
-Plug 'elixir-lang/vim-elixir'
-Plug 'fatih/vim-go'
+Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
+Plug 'fatih/vim-go', {'for': 'go'}
 
 filetype plugin indent on  " required!
 call plug#end()
