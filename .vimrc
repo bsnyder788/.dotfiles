@@ -1,49 +1,31 @@
 set nocompatible
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Install vim-plug if we don't already have it
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tomasr/molokai'
-Plugin 'kien/ctrlp.vim'
-Plugin 'ciaranm/detectindent'
-Plugin 'matchit.zip'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-tbone'
-Plugin 'fatih/vim-go'
-Plugin 'elixir-lang/vim-elixir'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'tomasr/molokai'
+Plug 'kien/ctrlp.vim'
+Plug 'ciaranm/detectindent'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-tbone'
+Plug 'elixir-lang/vim-elixir'
+Plug 'fatih/vim-go'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
+filetype plugin indent on  " required!
+call plug#end()
+
 " Put your non-Plugin stuff after this line
 
 set encoding=utf-8

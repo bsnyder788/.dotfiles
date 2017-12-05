@@ -55,33 +55,25 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-# export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
 alias mvn='/opt/apache-maven/bin/mvn'
-alias core='mvn clean install -T 1C -Dmaven.test.skip=true wildfly:deploy -Pdefault'
+alias core='mvn clean install -T 2 -Dmaven.test.skip=true && mvn -Dmaven.test.skip=true wildfly:deploy-only -Pdefault'
+alias build='mvn install -o -T 1C -Dmaven.test.skip=true'
+alias deploy='mvn -Dmaven.test.skip=true wildfly:deploy-only -Pdefault'
+alias conda='~/anaconda3/bin/conda'
+alias activate='~/anaconda3/bin/activate'
+alias vim='nvim'
 
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export SCALA_HOME=/usr/local/src/scala/scala-2.11.7
 export PATH=$SCALA_HOME/bin:$PATH
 export M3_HOME=/opt/apache-maven
-export SPARK_LOCAL_IP=localhost
+export SPARK_HOME=/opt/spark/spark-2.1.1-bin-hadoop2.7
+export SPARK_LOCAL_IP=127.0.1.1
 export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
-export GOPATH=$HOME
-alias tmux='tmux -2'
+export GOPATH=$HOME/go
+export TERM=screen-256color
+alias tmux='TERM=xterm-256color tmux -2'
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
@@ -89,3 +81,6 @@ export NVM_DIR="/home/bsnyder/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 export PATH=$HOME/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
+
+source ~/.dotfiles/.zshrc-private
