@@ -10,7 +10,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']} "Load only when opening NERDTree
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'Lokaltog/vim-easymotion'
