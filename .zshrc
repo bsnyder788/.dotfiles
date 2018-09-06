@@ -83,4 +83,5 @@ export PATH=$HOME/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 
-source ~/.dotfiles/.zshrc-private
+eval "$(direnv hook zsh)"
+
