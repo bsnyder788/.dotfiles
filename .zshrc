@@ -63,6 +63,8 @@ alias deploy='mvn -Dmaven.test.skip=true wildfly:deploy-only -Pdefault'
 alias conda='~/anaconda3/bin/conda'
 alias activate='~/anaconda3/bin/activate'
 alias vim='nvim'
+alias dc='docker-compose'
+alias hl='humanlog'
 
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export SCALA_HOME=/usr/local/src/scala/scala-2.11.7
@@ -85,3 +87,31 @@ export PATH=$PATH:$GOPATH/bin
 
 eval "$(direnv hook zsh)"
 
+# Better searching in command mode
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
+
+# Beginning search with arrow keys
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=1
+
+# Updates editor information when the keymap changes.
+function zle-keymap-select() {
+  zle reset-prompt
+  zle -R
+}
+
+zle -N zle-keymap-select
+
+function vi_mode_prompt_info() {
+  echo "${${KEYMAP/vicmd/[% NORMAL]%}/(main|viins)/[% INSERT]%}"
+}
+
+# define right prompt, regardless of whether the theme defined it
+RPS1='$(vi_mode_prompt_info)'
+RPS2=$RPS1

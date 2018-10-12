@@ -42,6 +42,7 @@ set t_Co=256
 syntax on
 set cursorline
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
 "let g:ctrlp_map = '<c-p>'
 " Use <leader>t to open ctrlp
 let g:ctrlp_map = '<leader>t'
