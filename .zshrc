@@ -65,6 +65,7 @@ alias activate='~/anaconda3/bin/activate'
 alias vim='nvim'
 alias dc='docker-compose'
 alias hl='humanlog'
+alias hg='history | grep'
 
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export SCALA_HOME=/usr/local/src/scala/scala-2.11.7
@@ -74,7 +75,7 @@ export SPARK_HOME=/opt/spark/spark-2.1.1-bin-hadoop2.7
 export SPARK_LOCAL_IP=127.0.1.1
 export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 export GOPATH=$HOME/go
-export TERM=screen-256color
+#export TERM=screen-256color
 alias tmux='TERM=xterm-256color tmux -2'
 bindkey -v
 bindkey '^R' history-incremental-search-backward
@@ -84,6 +85,7 @@ export NVM_DIR="/home/bsnyder/.nvm"
 export PATH=$HOME/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/home/bsnyder/.cargo/bin
 
 eval "$(direnv hook zsh)"
 
@@ -115,3 +117,25 @@ function vi_mode_prompt_info() {
 # define right prompt, regardless of whether the theme defined it
 RPS1='$(vi_mode_prompt_info)'
 RPS2=$RPS1
+
+SSH_ENV=$HOME/.ssh/environment
+
+# start the ssh-agent
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add
+}
+
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi

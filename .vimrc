@@ -22,6 +22,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-tbone'
 Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
 Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'cespare/vim-toml', {'for': 'toml'}
 
 filetype plugin indent on  " required!
 call plug#end()
