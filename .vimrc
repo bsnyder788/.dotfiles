@@ -23,6 +23,7 @@ Plug 'tpope/vim-tbone'
 Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
+Plug 'gleam-lang/gleam.vim', {'for': 'gleam'}
 
 filetype plugin indent on  " required!
 call plug#end()
