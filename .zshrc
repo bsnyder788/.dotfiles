@@ -86,6 +86,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/home/bsnyder/.cargo/bin
+export PATH=$PATH:./bin
 
 eval "$(direnv hook zsh)"
 
